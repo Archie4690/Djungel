@@ -1,0 +1,95 @@
+/* Global defaults */
+* {
+  font: "Departure Mono 12";
+  blur: true;
+  padding: 10px;
+  background-color: transparent;
+  border-radius: 0px;  // remove default rounding globally
+}
+
+/* ── Window ──────────────────────────────── */
+window {
+  width: 750px;
+  height: 625px;
+  location: center;
+  blur: true;
+  border: 2px;
+  border-radius: 3px;
+  border-color: #0b5e17;
+  background-color: #0b5e17;  // let Hyprland handle opacity
+  padding: 0px;
+  margin: 30px 50px;
+}
+
+/* ── Layout ──────────────────────────────── */
+mainbox {
+  orientation: horizontal;
+  children: [ "borderbox" ];
+  spacing: 0px;
+  padding: 0px;
+}
+
+borderbox {
+  orientation: horizontal;
+  children: [ "imagebox", "contentbox" ];
+  padding: 0px;
+  spacing: 0px;
+  border-radius: 3px;
+}
+
+contentbox {
+  orientation: vertical;
+  children: [ "entry", "listview" ];
+  spacing: 0px;
+  padding: 0px;
+  expand: true;
+}
+
+/* ── Imagebox ────────────────────────────── */
+imagebox {
+background-image: url("/home/archie/Downloads/grogu_eat_frog.jpg");
+size: 100px 625px;
+
+}
+
+/* ── Elements ────────────────────────────── */
+element {
+  border-radius: 0px;
+}
+
+element-text, element-icon {
+  padding: 6px 8px;
+  spacing: 2px;
+  text-color: #d19f81ff;
+}
+
+element selected {
+  background-color: #508463;
+  text-color: #d19f81ff;
+  border-radius: 3px;
+}
+
+/* ── Input & Prompt ──────────────────────── */
+prompt {
+  enabled: false;
+  background-color: transparent;
+  text-color: #61afef;
+  padding: 5px 10px;
+}
+
+entry {
+  padding: 8px;
+  expand: false;
+  font: "Departure 12";
+  text-color: #c29376;
+  border-radius: 0px 3px 0px 0px;
+  background-color: #1c2c1fff;  // input field
+}
+
+/* ── Listview ────────────────────────────── */
+listview {
+  lines: 1;
+  background-color: rgba(46, 52, 64, 0.8); // solid background inside blur
+  border-radius: 0px 0px 3px 0px;
+  padding: 5px;
+}

@@ -1,0 +1,79 @@
+# ─────────────────────────────
+#  Archie • mako for Hyprland
+#  Dark + Hypr green theme
+# ─────────────────────────────
+
+# === Global style options (from man 5 mako) ===
+
+font=JetBrainsMono Nerd Font 11
+
+background-color=#111319EE
+text-color=#F8F8F2FF
+
+width=360
+height=120
+
+outer-margin=20,20
+margin=8
+padding=8
+
+border-size=2
+border-color=#0B5E17FF
+border-radius=10
+
+icons=1
+max-icon-size=48
+markup=1
+history=1
+
+text-alignment=left
+group-by=app-name,summary
+max-visible=5
+layer=overlay
+anchor=top-right
+
+default-timeout=5000
+ignore-timeout=0
+
+format=<b>%s</b>\n%b
+
+# === Urgency-specific styles (values from spec: low, normal, critical) ===
+
+[urgency=low]
+background-color=#233126EE
+text-color=#b9eac0
+border-color=#b9eac0
+default-timeout=3000
+
+[urgency=normal]
+background-color=#233126EE
+text-color=#b9eac0
+border-color=#0b5e17
+default-timeout=6000
+
+[urgency=critical]
+background-color=#233126
+border-color=#FF5555FF
+border-size=4
+text-color=#b9eac0
+default-timeout=10000
+ignore-timeout=0
+
+# === Modes (do-not-disturb, compact, focus) ===
+# Use: makoctl mode -a NAME   /   makoctl mode -r NAME
+
+[mode=do-not-disturb]
+invisible=1
+
+[mode=compact]
+font=JetBrainsMono Nerd Font 10
+width=260
+padding=4
+border-radius=6
+format=<b>%s</b>
+
+[mode=focus]
+background-color=#101418F0
+text-color=#E5E9F0FF
+border-color=#88C0D0FF
+default-timeout=2000

@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
-# Moves audio output to the next avaliable option. 
+# Moves audio output to the next available option.
 
-# Get list of audio sink
-mapfile -t sinks < <(pactl list short sinks | awk '{print $2}')
+# Get list of audio sinks (ignoring HDMI)
+mapfile -t sinks < <(pactl list short sinks | awk '{print $2}' | grep -v "hdmi")
 
-# Outline current audio sink
+# Get current default sink
 current=$(pactl get-default-sink)
 
-# Loop through sinks to find current index
+# Find current index
 for i in "${!sinks[@]}"; do
   if [[ "${sinks[$i]}" == "$current" ]]; then
     current_index=$i
@@ -15,14 +15,28 @@ for i in "${!sinks[@]}"; do
   fi
 done
 
-# Adds one to the index, or defaults to 0 if at end of list
+# Next sink index
 next_index=$(( (current_index + 1) % ${#sinks[@]} ))
 target="${sinks[$next_index]}"
 
+# Set default and move streams
 pactl set-default-sink "$target"
-
 pactl list short sink-inputs | awk '{print $1}' | xargs -r -I{} pactl move-sink-input {} "$target"
 
-notify-send "Audio output switched" "Now using: $target"
+# ---- Human-friendly names ----
+case "$target" in
+    *88_C9_E8_DF_3C_9A*)
+        friendly="🎧 Headphones"
+        ;;
+    *10_94_97_4B_7E_76*)
+        friendly="🔊 Speakers"
+        ;;
+    *)
+        friendly="$target"   # fallback to raw name
+        ;;
+esac
+
+# Notification
+notify-send "Now playing from $friendly"
 
 # Dependencies: pactl, notify-send

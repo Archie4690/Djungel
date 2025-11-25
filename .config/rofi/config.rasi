@@ -1,0 +1,13 @@
+configuration {
+    modi: "drun,run";                    // Available modes
+    show-icons: true;                    // Show app icons
+    font: "JetBrainsMono Nerd Font 12";  // Global font
+}
+
+/* Import active theme */
+@theme "~/.config/rofi/theme.rasi"
+
+filebrowser {
+    directories-first: true;
+    sorting-method:    "recent";
+}
