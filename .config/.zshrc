@@ -17,6 +17,8 @@ fi
 
 PROMPT='%F{3}[%D{%H:%M}]%f %F{2}🐸 %F{7}%~%f %F{2}❯ %f'
 
+export CIDER_TOKEN=""
+
 qrcode() {
     if [ -z "$1" ]; then
         echo "Error: Please provide a URL or text to encode."
