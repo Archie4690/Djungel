@@ -1,0 +1,235 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "DepartureMono Nerd Font";
+    font-weight: bold;
+    font-size: 20px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: #1c1c1c;
+    color: #ebdbb2;
+}
+
+window#waybar.underline {
+    background: #458588;
+}
+
+window#waybar.underline * {
+    font-size: 1px;
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    color: transparent;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+tooltip {
+    background: #282828;
+    border: 1px solid #458588;
+    border-radius: 0;
+}
+
+
+/* ── Workspaces ───────────────────────────────────────────────── */
+
+#workspaces {
+    background: #1c1c1c;
+    margin: 0;
+    padding: 0;
+}
+
+#workspaces button {
+    padding: 0 10px;
+    margin: 0;
+    border-radius: 0;
+    color: #928374;
+    background: #282828;
+    transition: all 0.2s ease;
+}
+
+#workspaces button.empty {
+    color: #504945;
+    background: #1c1c1c;
+}
+
+#workspaces button.active {
+    color: #1c1c1c;
+    background: #458588;
+    min-width: 40px;
+}
+
+#workspaces button.urgent {
+    color: #1c1c1c;
+    background: #83a598;
+}
+
+#workspaces button:hover {
+    color: #1c1c1c;
+    background: #83a598;
+}
+
+
+/* ── Shared module base ───────────────────────────────────────── */
+
+#clock,
+#network,
+#bluetooth,
+#window,
+#custom-rofi,
+#custom-power_btn,
+#custom-lock_screen,
+#custom-updates,
+#custom-github,
+#custom-media,
+#pulseaudio,
+#tray,
+#custom-mako {
+    margin: 0;
+    padding: 0 10px;
+    border-radius: 0;
+    border: none;
+}
+
+
+/* ── Left panel ───────────────────────────────────────────────── */
+
+#clock {
+    background: #458588;
+    color: #1c1c1c;
+    padding: 0 12px;
+}
+
+#network {
+    background: #282828;
+    color: #ebdbb2;
+}
+
+#network.disabled {
+    color: #928374;
+}
+
+#bluetooth {
+    background: #282828;
+    color: #ebdbb2;
+}
+
+#window {
+    background: #1c1c1c;
+    color: #ebdbb2;
+    padding: 0 14px;
+}
+
+window#waybar.empty #window {
+    background: transparent;
+}
+
+
+/* ── Centre panel ─────────────────────────────────────────────── */
+
+#custom-rofi {
+    background: #1c1c1c;
+    color: #928374;
+    padding: 0 14px;
+}
+
+#custom-power_btn {
+    background: #1c1c1c;
+    color: #ebdbb2;
+    font-size: 20px;
+    font-weight: normal;
+    padding: 0 8px;
+}
+
+#custom-lock_screen {
+    background: #1c1c1c;
+    color: #ebdbb2;
+    font-size: 20px;
+    font-weight: normal;
+    padding: 0 8px;
+}
+
+#custom-updates {
+    background: #1c1c1c;
+    color: #ebdbb2;
+    padding: 0 10px;
+}
+
+#custom-updates.green { color: #83a598; }
+#custom-updates.yellow { color: #d79921; }
+#custom-updates.red { color: #cc241d; }
+
+#custom-github {
+    background: #1c1c1c;
+    color: #ebdbb2;
+    padding: 0 10px;
+}
+
+#custom-github.green { color: #83a598; }
+#custom-github.yellow { color: #d79921; }
+#custom-github.red { color: #cc241d; }
+
+
+/* ── Right panel ──────────────────────────────────────────────── */
+
+#custom-media {
+    background: #282828;
+    color: #ebdbb2;
+}
+
+#custom-media.custom-spotify {
+    color: #1db954;
+}
+
+#pulseaudio {
+    background: #458588;
+    color: #1c1c1c;
+    font-weight: normal;
+}
+
+#pulseaudio.microphone {
+    background: #458588;
+    color: #1c1c1c;
+    font-weight: normal;
+}
+
+#tray {
+    background: #1c1c1c;
+}
+
+#custom-mako {
+    background: #83a598;
+    color: #1c1c1c;
+    padding: 0 12px;
+}
+
+
+/* ── Powerline separators ─────────────────────────────────────── */
+
+#custom-sep-blue-mid,
+#custom-sep-mid-bar,
+#custom-sep-bar-mid-r,
+#custom-sep-mid-blue-r,
+#custom-sep-blue-lightblue-r,
+#custom-sep-bar-blue-r {
+    margin: 0;
+    padding: 0;
+    font-size: 32px;
+    border: none;
+}
+
+/* Left panel ( right-pointing) */
+#custom-sep-blue-mid { color: #458588; background: #282828; }
+#custom-sep-mid-bar  { color: #282828; background: #1c1c1c; }
+
+/* Right panel ( left-pointing) */
+#custom-sep-bar-mid-r        { color: #282828; background: #1c1c1c; }
+#custom-sep-mid-blue-r       { color: #458588; background: #282828; }
+#custom-sep-blue-lightblue-r { color: #83a598; background: #458588; }
+#custom-sep-bar-blue-r       { color: #458588; background: #1c1c1c; }

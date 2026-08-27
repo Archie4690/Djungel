@@ -1,0 +1,106 @@
+* {
+    bg:        #1c1c1c;
+    bg-alt:    #282828;
+    fg:        #ebdbb2;
+    fg-dim:    #928374;
+    accent:    #458588;
+    accent-lt: #83a598;
+    bevel:     #504945;
+    shadow:    #000000;
+
+    background-color: transparent;
+    text-color:       @fg;
+    font:             "DepartureMono Nerd Font Bold 12";
+}
+
+window {
+    width:            640px;
+    location:         center;
+    anchor:           center;
+    border-radius:    0px;
+    background-color: @bg;
+    border:           1px;
+    border-color:     @accent;
+    padding:          0px;
+}
+
+mainbox {
+    padding:  0px;
+    spacing:  0px;
+    children: [ inputbar, listview ];
+}
+
+/* Prompt reads as a pressed key, like the bar's active workspace */
+inputbar {
+    background-color: @bg-alt;
+    border:           0px 0px 1px 0px;
+    border-color:     @shadow;
+    padding:          0px;
+    spacing:          0px;
+    children:         [ prompt, entry ];
+}
+
+prompt {
+    background-color: @accent;
+    text-color:       @bg;
+    padding:          7px 12px;
+    border:           0px 1px 0px 0px;
+    border-color:     @shadow;
+}
+
+entry {
+    padding:           7px 12px;
+    text-color:        @fg;
+    placeholder:       "search apps or type a command";
+    placeholder-color: @fg-dim;
+    cursor:            text;
+}
+
+listview {
+    lines:        12;
+    columns:      1;
+    fixed-height: false;
+    scrollbar:    false;
+    padding:      4px;
+    spacing:      2px;
+    background-color: transparent;
+}
+
+element {
+    padding:          5px 10px;
+    border-radius:    0px;
+    background-color: transparent;
+    text-color:       @fg;
+}
+
+element normal.normal,
+element alternate.normal {
+    background-color: @bg-alt;
+    text-color:       @fg;
+    border:           1px 0px 0px 1px;
+    border-color:     @bevel;
+}
+
+/* Selected flips the bevel: pressed, teal, dark text */
+element selected.normal {
+    background-color: @accent;
+    text-color:       @bg;
+    border:           1px 0px 0px 1px;
+    border-color:     @shadow;
+}
+
+element-text {
+    background-color: transparent;
+    text-color:       inherit;
+    vertical-align:   0.5;
+}
+
+message {
+    padding:          6px 10px;
+    background-color: @bg-alt;
+}
+
+textbox {
+    text-color:       @fg-dim;
+    background-color: transparent;
+}

@@ -1,0 +1,118 @@
+[
+  {
+    "layer": "top",
+    "position": "top",
+    "output": "DP-1",
+    "style": "/home/archie/.config/waybar/style-primary.css",
+    "width": 2560,
+    "height": 26,
+    "mod": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+
+    "include": [
+      "~/.config/waybar/modules.jsonc"
+    ],
+
+    "modules-left": [
+      "clock",
+      "network",
+      "bluetooth",
+      "hyprland/window"
+    ],
+    "modules-center": [
+      "hyprland/workspaces"
+    ],
+    "modules-right": [
+      "custom/media",
+      "group/audio",
+      "custom/mako"
+    ],
+
+    // Group IO Audio
+    "group/audio": {
+      "orientation": "horizontal",
+      "modules": [
+        "pulseaudio",
+        "pulseaudio#microphone"
+      ]
+    }
+  },
+  {
+    "layer": "top",
+    "position": "top",
+    "output": "DP-1",
+    "name": "underline",
+    "width": 2560,
+    "height": 2,
+    "spacing": 0,
+    "mod": "dock",
+    "exclusive": true,
+    "passthrough": true,
+    "gtk-layer-shell": true,
+    "modules-center": [
+      "custom/underline"
+    ],
+    "custom/underline": {
+      "format": " ",
+      "tooltip": false
+    }
+  },
+  {
+    "layer": "top",
+    "position": "bottom",
+    "output": "HDMI-A-1",
+    "width": 1920,
+    "height": 24,
+    "mod": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+
+    "include": [
+      "~/.config/waybar/modules.jsonc"
+    ],
+
+    "modules-left": [
+      "clock",
+      "bluetooth"
+    ],
+    "modules-center": [
+      "hyprland/workspaces"
+    ],
+    "modules-right": [
+      "group/audio",
+      "custom/corners"
+    ],
+
+    // Group IO Audio
+    "group/audio": {
+      "orientation": "horizontal",
+      "modules": [
+        "pulseaudio",
+        "pulseaudio#microphone"
+      ]
+    }
+  },
+  {
+    "layer": "top",
+    "position": "bottom",
+    "output": "HDMI-A-1",
+    "name": "underline",
+    "width": 1920,
+    "height": 2,
+    "spacing": 0,
+    "mod": "dock",
+    "exclusive": true,
+    "passthrough": true,
+    "gtk-layer-shell": true,
+    "modules-center": [
+      "custom/underline"
+    ],
+    "custom/underline": {
+      "format": " ",
+      "tooltip": false
+    }
+  }
+]

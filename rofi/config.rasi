@@ -1,0 +1,21 @@
+configuration {
+    modes:            "drun,run";
+    show-icons:       false;
+    terminal:         "kitty";
+    matching:         "normal";
+    /* exclude exec/categories: flatpak Exec lines match almost any query */
+    drun-match-fields: "name,generic";
+    sort:             true;
+    cycle:            true;
+    case-sensitive:   false;
+
+    display-drun:     "app";
+    display-run:      "sh";
+    drun-display-format:  "{name}";
+
+    /* run mode: plain Enter executes, Shift+Enter opens it in kitty */
+    run-command:       "{cmd}";
+    run-shell-command: "{terminal} -e {cmd}";
+}
+
+@theme "retro"

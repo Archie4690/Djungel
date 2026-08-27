@@ -1,0 +1,75 @@
+# Version control
+.git
+
+# Python
+.venv
+venv
+__pycache__
+.pytest_cache
+.mypy_cache
+
+# Node / JS
+node_modules
+
+# Caches
+.cache
+.local/share/Trash
+
+# Steam / gaming
+.steam
+.steam-root
+.local/share/Steam
+steamapps
+.local/share/PrismLauncher
+.local/share/umu
+.local/share/Terraria
+
+# Zotero
+Zotero
+.zotero
+.local/share/zotero
+
+# Build / artifacts
+dist
+build
+target
+
+# OS / misc noise
+.DS_Store
+Thumbs.db
+
+# Thunderbird
+Thunderbird
+.thunderbird
+
+# Zen Browser
+.zen
+
+# Firefox
+.mozilla
+
+# VsCode
+.vscode-oss
+
+# Discord
+discord
+Discord
+.discord
+
+# Claude Code
+.local/share/claude
+.claude
+
+# Package managers / build tools
+.npm
+.gradle
+.cargo
+
+# Flatpak / container runtime
+.var
+
+# App data in .config
+.config/heroic
+.config/BambuStudio
+.config/sh.cider.genten
+.config/CurseForge

@@ -1,0 +1,251 @@
+{
+    "hyprland/window": {
+        "format": "{}",
+        "max-length": 50,
+        "rewrite": {
+            "(.*) - Chromium": " $1",
+            "(.*) - VSCodium": "󰨞 $1",
+            "(.*) - Thunar": " $1",
+            "(.*) - Discord": " $1",
+            "Unity - (.*)": " $1",
+            "Steam": " Steam",
+            "WhatsDesk": " WhatsDesk",
+            "Kitty": " $1",
+            "class<org.telegram.desktop>": " $1",
+            "class<spotify>": " Spotify",
+            "class<unityhub>": " UnityHub",
+            "class<zenity>": "  Lenovo Vantage"
+        },
+        "icon": false,
+        "separate-output": true
+    },
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "active-only": false,
+        "all-outputs": false,
+        "on-click": "activate",
+        "format": "{name}{icon}{windows}",
+        "format-icons": {
+            "urgent": "  ",
+            "default": " ",
+            "empty": ""
+        },
+        "window-rewrite": { // TODO complete
+            "title<.*youtube.*>": " ", 
+            "title<.*Discord.*>": " ",
+            "(.*) - Chromium": " ",
+            "(.*)VSCodium": "󰨞 ",
+            "class<Codium>": "󰨞 ",
+            "(.*) - Thunar": " ",
+            "class<discord>": " ",
+            "class<Discord>": " ",
+            "Steam": " ",
+            "class<org.telegram.desktop>": " ",
+            "WhatsDesk": " ",
+            "class<Alacritty>": " ",
+            "class<kitty>": " ",
+            "class<alacritty>": " ",
+            "class<spotify>": " ",
+            "class<Cider>": " ",
+            "class<cider>": " ",
+            "title<.*Cider.*>": " ",
+            "class<notion>": " ", // TODO add notion's symbol icon
+            "class<obsidian>": "󰠮 ",
+            "class<zen>": "󰈹 ",
+            "class<libreoffice-writer>": "󰈙 ",
+            "class<libreoffice-calc>": "󰧷 ",
+            "class<libreoffice-impress>": "󰐩 ",
+            "class<libreoffice-draw>": "󰏐 ",
+            "class<libreoffice-startcenter>": "󰏆 ",
+            "class<unityhub>": " ",
+            "class<Unity>": " ",
+            "class<zenity": " ",
+            "class<MuPDF>": " ",
+            "class<blueman-manager>": " ",
+            "title<.*Bluetooth.*>": " ",
+            "class<org.prismlauncher.PrismLauncher>": " ",
+            "class<prismlauncher>": " ",
+            "class<PrismLauncher>": " ",
+            "class<Minecraft\\*.*>": " ",
+            "class<Minecraft>": " ",
+            "class<minecraft>": " ",
+            "title<Updates>": " ",
+            "title<Installed Packages>": " "
+	},
+        "persistent-workspaces": {
+            "DP-1": [1, 2, 3, 4],
+            "HDMI-A-1": [5, 6, 7, 8]
+        }
+    },
+
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10
+    },
+
+    "clock": {
+        "interval": 1,
+        "format": "{:%H:%M:%S %d/%m/%y}",
+        "locale": "en_GB.utf8",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:L%a %d/%m/%y (%H:%M:%S)}",
+        "calendar": {
+                    "mode"          : "month",
+                    "mode-mon-col"  : 3,
+                    "weeks-pos"     : "right",
+                    "on-scroll"     : 1,
+                    "format": {
+                              "months":     "<span color='#ffead3'><b>{}</b></span>",
+                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                              "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                              }
+                    }
+    },
+
+    "pulseaudio": {
+        "format": "<span size=\"xx-large\" rise=\"-3500\" weight=\"normal\">{icon}</span> {volume}%",
+        "tooltip": true,
+        "format-muted": "<span size=\"xx-large\" rise=\"-3500\" weight=\"normal\"></span>",
+        "on-click": "pamixer -t",
+        "on-scroll-up": "pamixer -i 5",
+        "on-scroll-down": "pamixer -d 5",
+        "scroll-step": 5,
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        }
+    },
+
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": "<span size=\"xx-large\" rise=\"-3500\" weight=\"normal\"></span> {volume}%",
+        "format-source-muted": "<span size=\"xx-large\" rise=\"-3500\" weight=\"normal\"></span> ",
+        "on-click": "pamixer --default-source -t",
+        "on-scroll-up": "pamixer --default-source -i 5",
+        "on-scroll-down": "pamixer --default-source -d 5",
+        "scroll-step": 5
+    },
+    
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        // internet speed: "
+        "format-wifi": " Wi-Fi ({signalStrength}%)",
+        "format-ethernet": "󰈁 Ethernet",
+        "tooltip-format": "{ifname}: via {gwaddr} \n<small>down/up:  {bandwidthDownBytes}   {bandwidthUpBytes}</small>",
+        "format-linked": "󰈁 Ethernet (No IP)",
+        "format-disconnected": "Disconnected 󰌙",
+        "format-alt": "{ifname}",
+        "interval": 1,
+        "on-click-right": "kitty -e nmtui",
+        "max-length": 30
+    },
+
+    "bluetooth": {
+	    "format": "<span weight=\"normal\"></span>  ",
+	    "format-disabled": "<span weight=\"normal\"></span>  ",
+	    "format-connected": "<span weight=\"normal\"></span> {num_connections}",
+	    "tooltip-format": "{device_alias}",
+	    "tooltip-format-connected": " {device_enumerate}",
+	    "tooltip-format-enumerate-connected": "{device_alias}",
+        "on-click": "~/.config/waybar/scripts/bluetooth-toggle.sh",
+        "on-click-right": "blueman-manager"
+    },
+
+    "custom/power_btn": {
+        "format" : "{icon}",
+        "format-icons": [""],
+        //"on-click": "sh -c'(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
+        "on-click": "/home/archie/.config/rofi/applets/bin/powermenu.sh",
+        "tooltip-format": "Power options",
+        "tooltip": true
+    },
+
+    "custom/lock_screen": {
+        "format": "{icon}",        
+        "format-icons": [""],
+        "on-click": "hyprlock",
+        "tooltip-format": "Lock screen",
+        "tooltip": true
+    },
+
+    "custom/updates": {
+        //"format": "<span size=\"xx-large\" rise=\"-3500\" weight=\"normal\"></span> {}",
+        "format": "<span size=\"large\" rise=\"-3500\" weight=\"normal\"></span> {}",
+        // "tooltip-format": "Update the system\n<small>Packages: {}</small>",
+        "escape": true,
+        "return-type": "json",
+        "exec": "~/.config/waybar/scripts/updates.sh",
+        "restart-interval": 3600,
+        "on-click": "kitty --title Updates sh -c ~/.config/waybar/scripts/installaupdates.sh",
+        "on-click-right": "kitty --title 'Installed Packages' sh -c ~/.config/waybar/scripts/listpackages.sh",
+        "tooltip": true
+    },
+
+    "custom/corners": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "~/.config/waybar/scripts/corners.sh",
+        "interval": 5,
+        "tooltip": true
+    },
+
+    "custom/mako": {
+        "format": "{}",
+        "return-type": "json",
+        "exec-if": "command -v makoctl",
+        "exec": "~/.config/waybar/scripts/mako.sh",
+        "interval": 2,
+        "on-click": "makoctl mode -t do-not-disturb",
+        "on-click-right": "makoctl dismiss -a",
+        "tooltip": true
+    },
+
+    "custom/github": {
+        "format": "<span size=\"large\" rise=\"-3500\" weight=\"normal\"></span> {}",
+        "tooltip-format": "GitHub notifications",
+        "return-type": "json",
+        "interval": 60,
+        "exec": "~/.config/waybar/scripts/github.sh",
+        "on-click": "xdg-open https://github.com/notifications",
+        "tooltip": true
+    },
+
+    "custom/rofi": {
+        "format": "{icon} Search",
+        "format-icons": [""],
+        "tooltip-format": "Applications",
+        "on-click": "rofi -show drun"
+
+    },
+
+    "custom/sep-blue-mid":        { "format": "", "tooltip": false },
+    "custom/sep-mid-bar":         { "format": "", "tooltip": false },
+    "custom/sep-bar-mid-r":       { "format": "", "tooltip": false },
+    "custom/sep-mid-blue-r":      { "format": "", "tooltip": false },
+    "custom/sep-blue-lightblue-r":{ "format": "", "tooltip": false },
+    "custom/sep-bar-blue-r":      { "format": "", "tooltip": false },
+
+    "custom/media": {
+        "format": "{}",
+        "escape": true,
+        "return-type": "json",
+        "max-length": 50,
+        "on-click": "playerctl play-pause",
+        "on-click-right": "playerctl stop",
+        "smooth-scrolling-threshold": 10, // This value was tested using a trackpad, it should be lowered if using a mouse.
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous",
+        "exec": "~/.config/waybar/scripts/mediaplayer.py", // Script in resources/custom_modules folder
+        "tooltip": true,
+        "tooltip-format": "{}"
+    }
+}

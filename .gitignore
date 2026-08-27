@@ -1,2 +1,46 @@
-.DS_Store
+# --- Secrets -----------------------------------------------------------------
+# Real secrets live in ~/.config/.secrets/ and ~/.config/zsh/secrets.zsh.
+# Only the .example templates in this repo are tracked.
+.secrets/
+secrets.zsh
+*.token
+*.key
+*.pem
+.env
+.env.*
+!*.example
+
+# Machine-specific values read by waybar/hypr scripts
+hostname.txt
+ip-address.txt
+mac-address.txt
+*.pass
+
+# --- Local tool state --------------------------------------------------------
+.claude/
+CLAUDE.local.md
+.vscode/
+.idea/
+
+# --- Generated / cached ------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.spl
+node_modules/
+
+# --- Backups and scratch -----------------------------------------------------
+*.bak
+*.bak-*
+*.old
+!hypr/legacy/hyprland.conf.old
+*.orig
+*.rej
 *.swp
+*.swo
+*~
+*_backup_*/
+*.tmp
+
+# --- OS noise ----------------------------------------------------------------
+.DS_Store
+Thumbs.db

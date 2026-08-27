@@ -1,0 +1,258 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "DepartureMono Nerd Font";
+    font-weight: bold;
+    font-size: 18px;
+    min-height: 0;
+}
+
+/* CRT: faint scanlines over the bar ground */
+window#waybar {
+    background-color: #1c1c1c;
+    background-image: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0)    0px,
+        rgba(0, 0, 0, 0)    2px,
+        rgba(0, 0, 0, 0.22) 2px,
+        rgba(0, 0, 0, 0.22) 3px
+    );
+    color: #ebdbb2;
+}
+
+window#waybar.underline {
+    background: #458588;
+}
+
+window#waybar.underline * {
+    font-size: 1px;
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    color: transparent;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+tooltip {
+    background: #282828;
+    border: 1px solid #458588;
+    border-radius: 0;
+}
+
+
+/* ── Bevel kit ────────────────────────────────────────────────────
+   Raised = light top/left, black bottom/right. Active flips it to
+   read as pressed. This carries the retro look; colours unchanged. */
+
+#clock,
+#network,
+#bluetooth,
+#custom-rofi,
+#custom-power_btn,
+#custom-lock_screen,
+#custom-updates,
+#custom-github,
+#custom-media,
+#pulseaudio,
+#tray,
+#custom-mako,
+#custom-corners,
+#workspaces button {
+    border-top: 1px solid #504945;
+    border-left: 1px solid #504945;
+    border-right: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+}
+
+
+/* ── Workspaces ───────────────────────────────────────────────── */
+
+#workspaces {
+    background: transparent;
+    margin: 0;
+    padding: 0 2px;
+}
+
+#workspaces button {
+    padding: 0 7px;
+    margin: 3px 2px;
+    color: #928374;
+    background: #282828;
+    transition: all 0.15s steps(2, end);
+}
+
+#workspaces button.empty {
+    color: #504945;
+    background: #1c1c1c;
+}
+
+#workspaces button.active, #workspaces button.visible {
+    color: #1c1c1c;
+    background: #458588;
+    border-top: 1px solid #000000;
+    border-left: 1px solid #000000;
+    border-right: 1px solid #83a598;
+    border-bottom: 1px solid #83a598;
+}
+
+#workspaces button.urgent {
+    color: #1c1c1c;
+    background: #83a598;
+}
+
+#workspaces button:hover {
+    color: #1c1c1c;
+    background: #83a598;
+}
+
+
+/* ── Shared module base ───────────────────────────────────────── */
+
+#clock,
+#network,
+#bluetooth,
+#custom-rofi,
+#custom-power_btn,
+#custom-lock_screen,
+#custom-updates,
+#custom-github,
+#custom-media,
+#pulseaudio,
+#tray,
+#custom-mako,
+#custom-corners {
+    margin: 3px 2px;
+    padding: 0 8px;
+}
+
+
+/* ── Left panel ───────────────────────────────────────────────── */
+
+#clock {
+    background: #458588;
+    color: #1c1c1c;
+    padding: 0 10px;
+}
+
+#network {
+    background: #282828;
+    color: #ebdbb2;
+    text-shadow: 0 0 6px rgba(235, 219, 178, 0.25);
+}
+
+#network.disabled {
+    color: #928374;
+    text-shadow: none;
+}
+
+#bluetooth {
+    background: #282828;
+    color: #ebdbb2;
+    text-shadow: 0 0 6px rgba(235, 219, 178, 0.25);
+}
+
+/* Title sits directly on the bar ground, no chrome — keeps it readable */
+#window {
+    background: transparent;
+    color: #928374;
+    padding: 0 12px;
+    margin: 0;
+    border: none;
+    text-shadow: 0 0 6px rgba(146, 131, 116, 0.30);
+}
+
+window#waybar.empty #window {
+    background: transparent;
+}
+
+
+/* ── Centre panel ─────────────────────────────────────────────── */
+
+#custom-rofi {
+    background: #282828;
+    color: #928374;
+    padding: 0 12px;
+}
+
+#custom-power_btn {
+    background: #282828;
+    color: #ebdbb2;
+    font-weight: normal;
+    padding: 0 8px;
+}
+
+#custom-lock_screen {
+    background: #282828;
+    color: #ebdbb2;
+    font-weight: normal;
+    padding: 0 8px;
+}
+
+#custom-updates {
+    background: #282828;
+    color: #ebdbb2;
+    padding: 0 8px;
+}
+
+#custom-updates.green  { color: #83a598; text-shadow: 0 0 7px rgba(131, 165, 152, 0.50); }
+#custom-updates.yellow { color: #d79921; text-shadow: 0 0 7px rgba(215, 153, 33, 0.50); }
+#custom-updates.red    { color: #cc241d; text-shadow: 0 0 7px rgba(204, 36, 29, 0.55); }
+
+#custom-github {
+    background: #282828;
+    color: #ebdbb2;
+    padding: 0 8px;
+}
+
+#custom-github.green  { color: #83a598; text-shadow: 0 0 7px rgba(131, 165, 152, 0.50); }
+#custom-github.yellow { color: #d79921; text-shadow: 0 0 7px rgba(215, 153, 33, 0.50); }
+#custom-github.red    { color: #cc241d; text-shadow: 0 0 7px rgba(204, 36, 29, 0.55); }
+
+
+/* ── Right panel ──────────────────────────────────────────────── */
+
+#custom-media {
+    background: #282828;
+    color: #ebdbb2;
+    text-shadow: 0 0 6px rgba(235, 219, 178, 0.25);
+}
+
+#custom-media.custom-spotify {
+    color: #1db954;
+    text-shadow: 0 0 7px rgba(29, 185, 84, 0.45);
+}
+
+#pulseaudio {
+    background: #458588;
+    color: #1c1c1c;
+    font-weight: normal;
+}
+
+#pulseaudio.microphone {
+    background: #458588;
+    color: #1c1c1c;
+    font-weight: normal;
+}
+
+#tray {
+    background: #282828;
+}
+
+#custom-mako {
+    background: #83a598;
+    color: #1c1c1c;
+    padding: 0 10px;
+}
+
+/* Corner-hit counter — gold, because it's a Mario star */
+#custom-corners {
+    background: #282828;
+    color: #d79921;
+    padding: 0 10px;
+    text-shadow: 0 0 7px rgba(215, 153, 33, 0.55);
+}

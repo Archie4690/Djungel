@@ -1,0 +1,270 @@
+################
+### MONITORS ###
+################
+
+monitor = HDMI-A-1,1920x1080@60Hz,2560x420,1, transform, 0
+monitor = DP-1,2560x1440@60Hz,0x240,1
+
+###################
+### MY PROGRAMS ###
+###################
+
+# See https://wiki.hypr.land/Configuring/Keywords/
+
+
+$terminal = kitty
+$fileManager = thunar
+$menu = ~/.config/rofi/scripts/launcher_t6
+
+
+#################
+### AUTOSTART ###
+#################
+
+exec-once = hyprlock
+exec-once = hyprpaper
+exec-once = waybar
+exec-once = nm-applet
+exec-once = mako
+exec-once = swaync
+exec-once = wl-paste --watch cliphist store
+exec-once = python3 ~/p/c/ZenHomepage/server.py
+exec-once = wl-paste --watch cliphist store
+exec-once = ~/.config/hypr/Scripts/speakerconnect.sh
+exec-once = ~/.config/scripts/mount-servers.sh
+
+
+### ENVIRONMENT VARIABLES ###
+
+env = XCURSOR_SIZE,24
+env = HYPRCURSOR_SIZE,24
+
+#####################
+### LOOK AND FEEL ###
+#####################
+
+general {
+    gaps_in = 1
+    gaps_out = 0
+
+    border_size = 0
+
+    # https://wiki.hypr.land/Configuring/Variables/#variable-types for info about colors
+    col.active_border = rgb(928374)
+    col.inactive_border = rgb(928374)
+
+    # Set to true enable resizing windows by clicking and dragging on borders and gaps
+    resize_on_border = false
+
+    # Please see https://wiki.hypr.land/Configuring/Tearing/ before you turn this on
+    allow_tearing = false
+
+    layout = dwindle
+}
+
+# https://wiki.hypr.land/Configuring/Variables/#decoration
+decoration {
+    shadow {
+        enabled = false
+        range = 3
+        render_power = 1
+        color = rgb(093809)
+    }
+
+    # https://wiki.hypr.land/Configuring/Variables/#blur
+    blur {
+        enabled = false
+        size = 3
+        passes = 1
+
+        vibrancy = 0.1696
+    }
+}
+
+# https://wiki.hypr.land/Configuring/Variables/#animations
+animations {
+    enabled = yes, please :)
+
+    # Default curves, see https://wiki.hypr.land/Configuring/Animations/#curves
+    #        NAME,           X0,   Y0,   X1,   Y1
+    bezier = easeOutQuint,   0.23, 1,    0.32, 1
+    bezier = easeInOutCubic, 0.65, 0.05, 0.36, 1
+    bezier = linear,         0,    0,    1,    1
+    bezier = almostLinear,   0.5,  0.5,  0.75, 1
+    bezier = quick,          0.15, 0,    0.1,  1
+
+
+    #           NAME,          ONOFF, SPEED, CURVE,        [STYLE]
+    animation = global,        1,     10,    default
+    animation = border,        1,     5.39,  easeOutQuint
+    animation = windows,       1,     4.79,  easeOutQuint
+    animation = windowsIn,     1,     4.1,   easeOutQuint, popin 87%
+    animation = windowsOut,    1,     1.49,  linear,       popin 87%
+    animation = fadeIn,        1,     1.73,  almostLinear
+    animation = fadeOut,       1,     1.46,  almostLinear
+    animation = fade,          1,     3.03,  quick
+    animation = layers,        1,     3.81,  easeOutQuint
+    animation = layersIn,      1,     4,     easeOutQuint, fade
+    animation = layersOut,     1,     1.5,   linear,       fade
+    animation = fadeLayersIn,  1,     1.79,  almostLinear
+    animation = fadeLayersOut, 1,     1.39,  almostLinear
+    animation = workspaces,    1,     1.94,  almostLinear, fade
+    animation = workspacesIn,  1,     1.94,  almostLinear, fade
+    animation = workspacesOut, 1,     1.94,  almostLinear, fade
+    animation = zoomFactor,    1,     7,     quick
+}
+
+# Ref https://wiki.hypr.land/Configuring/Workspace-Rules/
+# "Smart gaps" / "No gaps when only"
+# uncomment all if you wish to use that.
+# workspace = w[tv1], gapsout:0, gapsin:0
+# workspace = f[1], gapsout:0, gapsin:0
+# windowrule = bordersize 0, floating:0, onworkspace:w[tv1]
+# windowrule = rounding 0, floating:0, onworkspace:w[tv1]
+# windowrule = bordersize 0, floating:0, onworkspace:f[1]
+# windowrule = rounding 0, floating:0, onworkspace:f[1]
+
+# See https://wiki.hypr.land/Configuring/Dwindle-Layout/ for more
+dwindle {
+    preserve_split = true # You probably want this
+}
+
+# See https://wiki.hypr.land/Configuring/Master-Layout/ for more
+master {
+    new_status = master
+}
+
+
+misc {
+    force_default_wallpaper = -1 # Set to 0 or 1 to disable the anime mascot wallpapers
+    disable_hyprland_logo = false # If true disables the random hyprland logo / anime girl background. :(
+}
+
+
+#############
+### INPUT ###
+#############
+
+
+input {
+    kb_layout = us
+    kb_variant =
+    kb_model =
+    kb_options = caps:escape_shifted_capslock
+    kb_rules =
+
+    follow_mouse = 1
+
+    sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
+
+    touchpad {
+        natural_scroll = false
+    }
+}
+
+
+gesture = 3, horizontal, workspace
+
+# Example per-device config
+
+device {
+    name = epic-mouse-v1
+    sensitivity = -0.5
+}
+
+
+###################
+### KEYBINDINGS ###
+###################
+
+
+$mainMod = SUPER # Sets "Windows" key as main modifier
+
+# Apps
+bind = $mainMod, Q, exec, $terminal
+bind = $mainMod, E, exec, $fileManager
+bind = $mainMod, Z, exec, /usr/bin/zen-browser
+bind = $mainMod, D, exec, /usr/bin/discord
+bind = $mainMod, SPACE, exec, $menu
+
+# Workflow
+bind = $mainMod, R, exec, ~/.local/bin/rotate-screen
+bind = $mainMod, C, killactive,
+bind = $mainMod, M, exit,
+bind = $mainMod, N, exec, ~/.config/hypr/Scripts/swapAudioOutput.sh
+bind = , XF86MonBrightnessUp, exec, /usr/bin/hyprlock
+bind = , XF86MonBrightnessDown, exec, bluetoothctl connect 88:c9:E8:DF:3C:9A
+bind = , XF86DoNotDisturb, exec, /usr/bin/hyprlock
+
+# Move Focus
+bind = $mainMod, up, exec, ~/.config/hypr/Scripts/ws_move_next.sh
+bind = $mainMod, down, exec, ~/.config/hypr/Scripts/ws_move_prev.sh
+bind = $mainMod, right, exec, ~/.config/hypr/Scripts/ws_next.sh
+bind = $mainMod, left, exec, ~/.config/hypr/Scripts/ws_prev.sh
+bind = $mainMod, h, movefocus, l
+bind = $mainMod, l, movefocus, r
+bind = $mainMod, k, movefocus, u
+bind = $mainMod, j, movefocus, d
+
+# Move Window to Other Monitor
+bind = $mainMod SHIFT, 1, movetoworkspace, 1
+bind = $mainMod SHIFT, 2, movetoworkspace, 2
+bind = $mainMod SHIFT, 3, movetoworkspace, 3
+bind = $mainMod SHIFT, 4, movetoworkspace, 4
+bind = $mainMod SHIFT, 5, movetoworkspace, 5
+bind = $mainMod SHIFT, 6, movetoworkspace, 6
+bind = $mainMod SHIFT, 7, movetoworkspace, 7
+bind = $mainMod SHIFT, 8, movetoworkspace, 8
+
+# Scroll through different windows
+bind = $mainMod, mouse_down, movefocus, l
+bind = $mainMod, mouse_up, movefocus, r
+
+# View different workspaces
+bind = $mainMod , 1, workspace, 1
+bind = $mainMod , 2, workspace, 2
+bind = $mainMod , 3, workspace, 3
+bind = $mainMod , 4, workspace, 4
+bind = $mainMod , 5, workspace, 5
+bind = $mainMod , 6, workspace, 6
+bind = $mainMod , 7, workspace, 7
+bind = $mainMod , 8, workspace, 8
+bind = $mainMod , RETURN, workspace, 1
+bind = $mainMod , RETURN, workspace, 5
+bind = $mainMod , BACKSPACE, workspace, 2
+bind = $mainMod , BACKSPACE, workspace, 6
+
+
+# Move and Resize Windows
+bindm = $mainMod, mouse:272, movewindow
+bindm = $mainMod, mouse:273, resizewindow
+
+# Screenshot
+
+bind = $mainMod, S, exec, ~/.config/hypr/Scripts/screenshot.sh
+bind = $mainMod SHIFT, S, exec, ~/.config/hypr/Scripts/annotate-last.sh
+
+# Media Controls
+
+bind = , XF86AudioPlay, exec, playerctl play-pause
+bind = , XF86AudioPrev, exec, playerctl previous 
+bind = , XF86AudioNext, exec, playerctl next
+bind = , XF86AudioRaiseVolume, exec, pamixer -i 5
+bind = , XF86AudioLowerVolume, exec, pamixer -d 5
+bind = , XF86AudioMute, exec, pamixer -t
+
+
+##############################
+### WINDOWS AND WORKSPACES ###
+##############################
+
+workspace = 1, monitor:DP-1, persistent=true
+workspace = 2, monitor:DP-1, persistent=true
+workspace = 3, monitor:DP-1, persistent=true
+workspace = 4, monitor:DP-1, persistent=true
+workspace = 5, monitor:HDMI-A-1, persistent=true
+workspace = 6, monitor:HDMI-A-1, persistent=true
+workspace = 7, monitor:HDMI-A-1, persistent=true
+workspace = 8, monitor:HDMI-A-1, persistent=true
+
+bind = $mainMod, Home, exec, ~/.local/bin/switch-profile

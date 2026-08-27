@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+set -e
+
+HYPR_CONF="$HOME/.config/hypr/hyprland.conf"
+WAYBAR_CONF="$HOME/.config/waybar/config.jsonc"
+MONITOR="HDMI-A-1"
+
+CURRENT=$(grep -oP "monitor = $MONITOR,.*transform,\s*\K\d" "$HYPR_CONF")
+if [[ -z "$CURRENT" ]]; then
+    echo "Could not find transform for $MONITOR in $HYPR_CONF" >&2
+    exit 1
+fi
+
+if [[ -n "$1" ]]; then
+    if [[ ! "$1" =~ ^[0-3]$ ]]; then
+        echo "Usage: rotate-screen [0-3]" >&2
+        exit 1
+    fi
+    NEXT=$1
+else
+    NEXT=$(( (CURRENT + 1) % 4 ))
+fi
+
+echo "Rotated the screen to position $NEXT"
+
+if [[ $NEXT -eq 0 || $NEXT -eq 2 ]]; then
+    OFFSET_Y=420
+    NEW_WIDTH=1920
+    OLD_WIDTH=1080
+else
+    OFFSET_Y=0
+    NEW_WIDTH=1080
+    OLD_WIDTH=1920
+fi
+
+sed -i -E "s/(monitor = $MONITOR,.*transform,[[:space:]]*)$CURRENT/\1$NEXT/" "$HYPR_CONF"
+sed -i -E "s/(monitor = $MONITOR,1920x1080@60Hz,2560x)[0-9]+(,)/\1$OFFSET_Y\2/" "$HYPR_CONF"
+
+hyprctl reload &>/dev/null
+
+sed -i "s/\"width\": $OLD_WIDTH/\"width\": $NEW_WIDTH/" "$WAYBAR_CONF"
+
+killall waybar 2>/dev/null || true
+waybar &>/dev/null &
+disown
