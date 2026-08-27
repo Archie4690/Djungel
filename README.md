@@ -5,9 +5,9 @@ setup built around Waybar, kitty and a keyboard-driven workflow.
 
 > **Note on the screenshots below:** Keyboard layout for my Corne split keyboard using Dvorak Programmer layout
 
-<img width="877" height="320" alt="desktop" src="https://github.com/user-attachments/assets/7a98a3ac-5384-4773-9d39-a534be57563c" />
-<img width="877" height="323" alt="terminal" src="https://github.com/user-attachments/assets/6d1eede7-39c8-4d87-bd6d-a9d1f7bde849" />
-<img width="878" height="322" alt="launcher" src="https://github.com/user-attachments/assets/d1c6cc5b-1c41-4d7d-8ced-6486f8481900" />
+<img width="877" height="320" alt="Corne layer 1" src="https://github.com/user-attachments/assets/7a98a3ac-5384-4773-9d39-a534be57563c" />
+<img width="877" height="323" alt="Corne layer 2" src="https://github.com/user-attachments/assets/6d1eede7-39c8-4d87-bd6d-a9d1f7bde849" />
+<img width="878" height="322" alt="Corne layer 3" src="https://github.com/user-attachments/assets/d1c6cc5b-1c41-4d7d-8ced-6486f8481900" />
 
 ## Layout
 

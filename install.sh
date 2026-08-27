@@ -74,5 +74,7 @@ else
     cp "$REPO/zsh/secrets.zsh.example" "$HOME/.config/zsh/secrets.zsh"
     echo "created $HOME/.config/zsh/secrets.zsh — fill it in"
   }
-  [[ -d "$BACKUP" ]] && echo "backups in $BACKUP"
+  if [[ -d "$BACKUP" ]]; then
+    echo "backups in $BACKUP"
+  fi
 fi
